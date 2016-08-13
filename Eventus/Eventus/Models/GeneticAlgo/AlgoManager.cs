@@ -85,8 +85,10 @@ namespace Eventus.Models.GeneticAlgo
                     {
                         if (!(this.BestPaths.Contains(ip, this.ipEqualityComparer)))
                         {
+                            IndividualPath newInstance = new IndividualPath(ip.PathEvents);
+                            newInstance.Score = ip.Score;
                             this.BestPaths.RemoveAt(this.BestPaths.Count - 1);
-                            this.BestPaths.Add(ip);
+                            this.BestPaths.Add(newInstance);
                             this.BestPaths.Sort();
                         }  
                     }

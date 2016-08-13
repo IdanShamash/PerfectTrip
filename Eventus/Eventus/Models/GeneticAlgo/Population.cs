@@ -52,7 +52,7 @@ namespace Eventus.Models.GeneticAlgo
             this.totalPopulationScore = 0;
             this.Individuals = new List<IndividualPath>();
             this.GenerateIndividuals(ec);
-            this.NormalizeScores();
+            //this.NormalizeScores();
         }
 
         private Population()
@@ -119,7 +119,7 @@ namespace Eventus.Models.GeneticAlgo
                 this.totalPopulationScore += (int)Math.Ceiling(ip.Score);
             }
 
-            this.NormalizeScores();
+           // this.NormalizeScores();
         }
 
         private void GenerateIndividuals(EventsContainer ec)
