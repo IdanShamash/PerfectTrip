@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "meter";
+}
+
+<html>
+<head>
+    <title></title>
+    <link href="~/css/angular-material.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl" ng-cloak>
+    <script src="~/js/angular.min.js"></script>
+    <script src="~/js/angular-animate.min.js"></script>
+    <script src="~/js/angular-aria.min.js"></script>
+    <script src="~/js/angular-messages.min.js"></script>
+    <script src="~/js/angular-material.min.js"></script>
+    <script src="~/js/JavaScript.js"></script>
+
+
+
+    <div style="width:900px">
+        <md-content>
+
+
+            <md-button ng-click="search1()" class="md-raised md-primary">search</md-button>
+            <md-list flex>
+                <md-list-item class="md-3-line" ng-click="null" ng-repeat="result in results">
+                    <div class="md-list-item-text" layout="row" ng-repeat="event in result.PathEvents"  >
+
+                        <div layout="column" flex="45">
+                            <h3 flex>{{event.Title}} {{event.Type.Name}}  </h3>
+                            <h4 flex>{{event.Location.Name}}</h4>
+                            <p flex> {{event.stringDate}} </p>
+                            <p>Price: {{event.Price}} $ {{event.coin}}</p>
+                        </div>
+                        <div layout="column" flex="10">
+                            <md-icon md-svg-src="~/css/svg/ic_send_black_24px.svg">
+                            </md-icon>
+                        </div>
+                    </div>
+                    <div>
+                        <md-button class="md-fab" aria-label="Eat cake" ng-click="openToast()">
+                            <md-icon md-svg-src="~/css/svg/ic_favorite_border_white_24px.svg"></md-icon>
+                        </md-button>
+                        <md-button class="md-fab md-primary" aria-label="Use Android">
+                            <md-icon md-svg-src="~/css/svg/ic_flight_takeoff_white_24px.svg"></md-icon>
+                        </md-button>
+                    </div>
+                </md-list-item>
+                <md-divider></md-divider>
+            </md-list>
+        </md-content>
+    </div>
+
+    <div layout-fill id="toast-container">
+        <md-content>
+
+        </md-content>
+    </div>
+</body>
+
+</html>

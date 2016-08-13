@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DBEventus">
+  <DataContextMoniker Name="/DBEventusDataContext" />
+  <nestedChildShapes>
+    <classShape Id="3041e3e5-8fa4-4792-a5cd-d4ae8d59f4e6" absoluteBounds="0.75, 0.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DBEventusDataContext/Event" />
+      <nestedChildShapes>
+        <elementListCompartment Id="424cc3e4-a63a-4337-b55f-f6b51c19ed1e" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ab486a17-738c-4fee-8229-f0594e3bdcac" absoluteBounds="3.75, 0.75, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/DBEventusDataContext/EventType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4cb79e12-43cb-473a-aba8-dcca51859d88" absoluteBounds="3.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8912e0ef-a32f-4e17-90be-e697865caba5" absoluteBounds="0.75, 3.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DBEventusDataContext/Location" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c75941c7-7219-49ca-9907-236d4a2e4acd" absoluteBounds="0.765, 4.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

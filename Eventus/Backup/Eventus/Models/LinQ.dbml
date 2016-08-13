@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DB" Class="LinQDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\DB.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Event" Member="Events">
+    <Type Name="Event">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="eventTitle" Type="System.String" DbType="NChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="country" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="city" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="price" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="coin" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

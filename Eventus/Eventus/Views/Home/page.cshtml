@@ -1,0 +1,124 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/Style.css" rel="stylesheet" />
+
+</head>
+<body ng-app="myApp" ng-controller="myCtrl" dir="rtl">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.7.2.min.js"><\/script>')</script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/JavaScript.js"></script>
+
+    <center>
+        <div id="this-carousel-id" class="carousel slide">
+            <!-- class of slide for animation -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <!-- class of active since it's the first item -->
+
+                    <img src="img/greece.jpg" alt="greece" />
+                    <div class="carousel-caption">
+                        <p>Greece</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="img/fiji.jpg" alt="fiji" />
+                    <div class="carousel-caption">
+                        <p>Fiji</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="img/singapore.jpg" alt="Singpore" />
+                    <div class="carousel-caption">
+                        <p>Singapore</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="img/borabora.jpg" alt="Bora Bora" />
+                    <div class="carousel-caption">
+                        <p>Bora Bora</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="img/newzeland.jpg" />
+                    <div class="carousel-caption">
+                        <p>New Zeland</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="img/london.jpg" />
+                    <div class="carousel-caption">
+                        <p>London</p>
+                    </div>
+                </div>
+            </div><!-- /.carousel-inner -->
+            <!--  Next and Previous controls below
+              href values must reference the id for this carousel -->
+            <a class="carousel-control left" href="this-carousel-id" data-slide="prev">&lsaquo;</a>
+            <a class="carousel-control right" href="#this-carousel-id" data-slide="next">&rsaquo;</a>
+        </div><!-- /.carousel -->
+    </center>
+    Country: <input type="search" name="textTosearch" class="dropdown" placeholder="country.." />
+    <br />
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Dropdown
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+        </ul>
+    </div>
+    <br />
+    Start date : <input type="date" name="startDate" ng-model="startDate" />
+    End date: <input type="date" name="endDate" ng-model="endtDate" />
+    <br />
+    Event type: <input type="search" name="textTosearch" placeholder="Search.." ng-model="eventType" />
+    <div ng-repeat="n in range('5')">
+        <input type="search" name="textTosearch" placeholder="Search.." ng-model="eventType" />
+    </div>
+    <button type="button" class="" name="Add Event" ng-click="AddEventField()"></button>
+    <br />
+    <button type="submit" class="check" ng-click="search()">Search</button>
+    <p>Search icon: <span class="glyphicon glyphicon-search"></span></p>
+    <div ng-if="isResults">
+        <table class="table" name="tableResults">
+            <tr>
+                <th>country</th>
+                <th>event type</th>
+                <th>price</th>
+                <th>strart date</th>
+                <th>end date</th>
+            </tr>
+            <tr ng-repeat="result in results">
+                <td>{{result.country}}</td>
+                <td>{{result.typeOfEvent}}</td>
+                <td>{{result.price }}</td>
+                <td>{{result.startDate}}</td>
+                <td>{{result.endDate}}</td>
+            </tr>
+        </table>
+    </div>
+    <script>
+    $(document).ready(function () {
+        $('.carousel').carousel({
+            interval: 4000
+        });
+    });
+    </script>
+</body>
+</html>
+

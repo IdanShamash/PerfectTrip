@@ -1,0 +1,441 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>The ultimate vacation</title>
+		<link href="../../css/style.css" rel='stylesheet' type='text/css' />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            /* The Modal (background) */
+            .modal {
+                display: none; /* Hidden by default */
+                position: fixed; /* Stay in place */
+                z-index: 1; /* Sit on top */
+                padding-top: 80px; /* Location of the box */
+                left: 0;
+                top: 0;
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                overflow: auto; /* Enable scroll if needed */
+                background-color: rgb(0,0,0); /* Fallback color */
+                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            }
+
+            /* Modal Content */
+            .modal-content {
+                background-color: #fefefe;
+                margin: auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 60%;
+            }
+
+            /* The Close Button */
+            .close {
+                color: #aaaaaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+
+                .close:hover,
+                .close:focus {
+                    color: #000;
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+        </style>
+
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		</script>
+		<script src="js/jquery.min.js"></script>
+		<!---smoth-scrlling---->
+			<script type="text/javascript">
+				$(document).ready(function(){
+									$('a[href^="#"]').on('click',function (e) {
+									    e.preventDefault();
+									    var target = this.hash,
+									    $target = $(target);
+									    $('html, body').stop().animate({
+									        'scrollTop': $target.offset().top
+									    }, 1000, 'swing', function () {
+									        window.location.hash = target;
+									    });
+									});
+								});
+				</script>
+		<!---//smoth-scrlling---->
+		<!----start-top-nav-script---->
+		<script type="text/javascript" src="js/flexy-menu.js"></script>
+		<script type="text/javascript">$(document).ready(function(){$(".flexy-menu").flexymenu({speed: 400,type: "horizontal",align: "right"});});</script>
+		<!----//End-top-nav-script---->
+		<!---webfonts---->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+		<!---webfonts---->
+		<!---calender-style---->
+		<link rel="stylesheet" href="css/jquery-ui.css" />
+		<!---//calender-style---->
+		<!---images-hover-effects--->
+		<link rel="stylesheet" href="css/zalki_hover_img.css" type="text/css" media="screen">
+		<script src="js/jquery.zalki_hover_img.min-0.2.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(window).load(function(){
+				$('.main_box').ZalkiHoverImg(
+				);
+				});
+		</script>
+
+		<!---//images-hover-effects--->
+        <script>
+        $(function f(){
+        f.count_event_id = 1;
+        $(".test1").on("click", function () {
+        var temp_count = f.count_event_id+1;
+        if (temp_count <= 3){
+        f.count_event_id++;
+        var dup = $("#1").clone();
+        dup.attr('id', f.count_event_id);
+        dup.appendTo(".events");
+        divparent = dup.closest('div');
+        divparent.find(".cancelevent1").show();
+        intext = divparent.find(".dest");;
+        intext.val(eval(intext.attr("onblur")));
+        if (f.count_event_id > 2) {
+        $(".test1").hide();
+        }
+        }
+        });
+
+        $(document).on("click",".cancelevent1", function () {
+        f.count_event_id--;
+        if (f.count_event_id < 3) {
+        $(".test1").show();
+        }
+        $(this).closest('div').remove();
+        });
+        })
+        // ]]>
+        // ]]></script>
+        <!-- plus add event effect--><!----start-wrap---->
+
+        <script>
+            $(document).ready(function () {
+                document.getElementById("rotem").style.visibility = "hidden";
+            });
+    function myFunction() {
+        document.getElementById("rotem").style.visibility = "visible";
+    }
+        </script>
+
+	</head>
+	<body><!----start-wrap---->
+<!----start-top-header----->
+<div class="top-header" id="header">
+    <div class="wrap">
+        <div class="top-header-left">
+            <ul>
+                <li id="myBtn"><a href="#"><span> </span> Login</a></li>
+                <li><p><span> </span>Not a Member ? </p>&nbsp;<a class="reg" href="register.html"> Register</a></li>
+                <div class="clear"> </div>
+            </ul>
+        </div>
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">X</span>
+                <center>
+                    <form>
+                        <h2>Log In </h2>
+                        <table>
+                            <tr>
+                                <td>
+                                    <span> User Name</span>
+                                </td>
+                                <td>
+                                    <input class="dest" type="text" value="User Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'User name';}">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span> Password</span>
+                                </td>
+                                <td>
+                                    <input class="dest" type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'password';}">
+                                </td>
+                            </tr>
+                        </table>
+                        <input type="submit" value="Log in" id="withUser" />
+                        <script type="text/javascript">
+                            document.getElementById("withUser").onclick = function () {
+                                location.href = "http://localhost:50980/index2.html";
+                            };
+                        </script>
+                    </form>
+                    <a href="#">Forgot your password? click here</a>
+                </center>
+            </div>
+        </div>
+
+        <script>
+            // Get the modal
+            var modal = document.getElementById('myModal');
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks the button, open the modal
+            btn.onclick = function () {
+                modal.style.display = "block";
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (EventDAL) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+        <div class="top-header-right">
+            <ul>
+                <li><a class="face" href="#"><span> </span></a></li>
+                <li><a class="twit" href="#"><span> </span></a></li>
+                <li><a class="thum" href="#"><span> </span></a></li>
+                <li><a class="pin" href="#"><span> </span></a></li>
+                <div class="clear"> </div>
+            </ul>
+        </div>
+        <div class="clear"> </div>
+    </div>
+</div>
+<!----//End-top-header----->
+<!---start-header---->
+<div class="header">
+    <div class="wrap">
+        <!--- start-logo---->
+        <div class="logo">
+            <a href="index.html"><img src="../../images/Newlogo.png" title="The Ultimate Vacation" /></a>
+        </div>
+        <!--- //End-logo---->
+        <!--- start-top-nav---->
+        <div class="top-nav">
+            <ul class="flexy-menu thick orange">
+                <li class="active"><a href="Home/index">Home</a></li>
+                <!---<li><a href="search.html">Search</a></li>-->
+                <li> /li>
+                    
+                <li><a href="Home/history">Saved Events</a></li>
+            </ul>
+            <!----search-scripts---->
+            <script src="js/modernizr.custom.js"></script>
+            <script src="js/classie.js"></script>
+            <script src="js/uisearch.js"></script>
+            <script>
+                new UISearch(document.getElementById('sb-search'));
+            </script>
+            <!----//search-scripts---->
+        </div>
+        <!--- //End-top-nav---->
+        <div class="clear"> </div>
+    </div>
+    <!---//End-header---->
+    
+</div>
+		<!---start-destinatiuons---->
+		<div class="destinations">
+			<div class="destination-head">
+				<div class="wrap">
+					<h3>SEARCH</h3>
+				</div>
+				<!---End-destinatiuons---->
+				<div class="find-place dfind-place">
+                    <div class="wrap">
+                        <div class="p-h">
+                            <span>FIND YOUR</span>
+                            <label>EVENTS</label>
+                        </div>
+                        <!---strat-date-piker---->
+                        <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+                        <script>
+                            $(function() {
+                                $( "#datepicker" ).datepicker();
+                            });
+                        </script>
+                        <!---/End-date-piker---->
+                        <div class="p-ww">
+                            <form>
+                                <span> Where </span>
+                                <input class="dest" type="text" value="Spain" onfocus="this.value = 'Spain';" onblur="if (this.value == '') {this.value = 'Where';}">
+                                <br />
+                                <br />
+                                <span> From </span>
+                                <input class="dest" type="text" value="20/05/2016" onfocus="this.value = '20/05/2016';" onblur="if (this.value == '') {this.value = 'Distination';}">
+                                <span> To &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span>
+                                <input class="date" id="datepicker" type="text" value="23/05/2016" onfocus="this.value = '23/05/2016';" onblur="if (this.value == '') {this.value = 'Select date';}">
+                                <div class="events">
+                                    <div class="orgevent" id="1">
+                                        <br />
+                                        <span> Event </span>
+                                        <input class="dest" type="text" value="Music" oninvalid="=" onfocus="    this.value = 'Music';" onblur="    if (this.value == 'Spain') {this.value = 'Spain';}">
+                                        <span> Free text </span>
+                                        <input class="dest" type="text" value="Free text" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Event text';}">
+                                        <span> <img hidden src="../../images/X.png" title="cancel" width="2.5%" height="2.5%" class="cancelevent1" /> </span>
+                                    </div>
+                                </div>
+                                <div class="orgevent" id="1">
+                                    <br />
+                                    <span> Event </span>
+                                    <input class="dest" type="text" value="soccer" oninvalid="=" onfocus="    this.value = 'Music';" onblur="    if (this.value == 'Spain') {this.value = 'Spain';}">
+                                    <span> Free text </span>
+                                    <input class="dest" type="text" value="FCB" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Event text';}">
+                                    <span> <img src="../../images/X.png" title="cancel" width="2.5%" height="2.5%" class="cancelevent1" /> </span>
+                                </div>
+                                <img src="../../images/pluss.png" title="plus" width="2.5%" height="2.5%" class="test1" />
+                                <br />
+                                <input type="submit" value="Search" onclick="myFunction()" />
+                            </form>
+                        </div>
+                       
+                    </div>
+						<div class="clear"> </div>
+					</div>
+				</div>
+				<!----//End-find-place---->
+			</div>
+            <div class="destination-places">
+                <div class="wrap">
+                    <div class="destination-places-head">
+                        <h3>Search Results</h3>
+                    </div>
+                    <div >
+                        <table style="width:100%">
+                            <tr class="dest-place-opt-cast">
+                                <th align="left"><input type="radio" /></th>
+                                <th>Event</th>
+                                <th>Country</th>
+                                <th>City</th>
+                                <th>Date</th>
+                                <th>Price</th>
+
+                            </tr>
+                            <tr class="dest-place-opt-fea">
+                                <td><input type="radio" /></td>
+                                <td>Tomavistas 2016</td>
+                                <td>Spain</td>
+                                <td>Madrid</td>
+                                <td>20-22/05/2016</td>
+                                <td>28€</td>
+                            </tr>
+                            <tr class="dest-place-opt-cast">
+                                <td><input type="radio" /></td>
+                                <td>Joan Miquel Oliver</td>
+                                <td>Spain</td>
+                                <td>Barcelona</td>
+                                <td>21/05/2016 22:30</td>
+                                <td>20€</td>
+
+                            </tr>
+                            <tr class="dest-place-opt-fea">
+                                <td><input type="radio" /></td>
+                                <td>Jon Rundell</td>
+                                <td>Spain</td>
+                                <td>Madrid</td>
+                                <td>21/05/2016 21:00</td>
+                                <td>10€</td>
+                            </tr>
+                            <tr class="dest-place-opt-cast">
+                                <td><input type="radio" /></td>
+                                <td>Queen + Adam Lambert</td>
+                                <td>Spain</td>
+                                <td>Barcelona</td>
+                                <td>22/05/2016 21:00</td>
+                                <td>14€</td>
+                            </tr>
+                        </table>
+                        <br />
+                        <br />
+                        <br />
+
+                        <table style="width:100%">
+                            <tr class="dest-place-opt-cast">
+                                <th align="left"><input type="radio" /></th>
+                                <th>Event</th>
+                                <th>Country</th>
+                                <th>City</th>
+                                <th>Date</th>
+                                <th>Price</th>
+
+                            </tr>
+                            <tr class="dest-place-opt-fea">
+                                <td><input type="radio" /></td>
+                                <td>FC Barcelona - Sevilla FC</td>
+                                <td>Spain</td>
+                                <td>Barcelona</td>
+                                <td>22/05/2016 21:30</td>
+                                <td>43€</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!---start-destinations-pagenation---->
+
+            <div class="destination-pagenate">
+                <div class="wrap">
+                    <input type="submit" value="Save" />
+
+                    <input type="submit" value="Share" />
+                </div>
+            </div>
+			<!---start-destinations-pagenation---->
+				<div class="destination-pagenate">
+					<div class="wrap">
+						<ul>
+							<li><a class="d-next" href="#">LOAding More</a></li>
+							<div class="clear"> </div>
+						</ul>
+					</div>
+				</div>
+			<!---//End-destinations-pagenation---->
+			<!---loading-more-script--->
+			<!---//loading-more-script--->
+		</div>
+		<!----//End-offers---->
+		<!----//End-images-slider---->
+		<!----//End-footer---->
+		<!---start-subfooter---->
+		<div class="subfooter">
+			<div class="wrap">
+				<ul>
+					<li><a href="index.html">Home</a><span>::</span></li>
+					<li><a href="destinations.html">Destinations</a><span>::</span></li>
+					<li><a href="criuses.html">Criuses</a><span>::</span></li>
+					<li><a href="destinations.html">Specils</a><span>::</span></li>
+					<li><a href="destinations.html">Holidays</a><span>::</span></li>
+					<li><a href="blog.html">Blog</a><span>::</span></li>
+					<li><a href="contact.html">Contact Us</a></li>
+					<div class="clear"> </div>
+				</ul>
+				<p class="copy-right">Template by <a href="http://w3layouts.com/">W3layouts</a></p>
+				<a class="to-top" href="#header"><span> </span> </a>
+			</div>
+		</div>
+		<!---//End-subfooter---->
+		<!----//End-wrap---->
+	</body>
+</html>
+

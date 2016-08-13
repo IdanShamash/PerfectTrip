@@ -1,0 +1,312 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>The Ultimate Vacation</title>
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 80px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 60%;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+    </style>
+
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <!---script---->
+    <link rel="stylesheet" href="css/jquery.bxslider.css" type="text/css" />
+    <script src="js/jquery.bxslider.js"></script>
+    <script type="text/javascript">
+				$(document).ready(function(){
+					$('.bxslider').bxSlider({
+						 auto: true,
+ 						 autoControls: true,
+						 minSlides: 4,
+						 maxSlides: 4,
+						 slideWidth:450,
+						 slideMargin: 10
+					});
+				});
+    </script>
+    <!---//script---->
+    <!---smoth-scrlling---->
+    <script type="text/javascript">
+				$(document).ready(function(){
+									$('a[href^="#"]').on('click',function (e) {
+									    e.preventDefault();
+									    var target = this.hash,
+									    $target = $(target);
+									    $('html, body').stop().animate({
+									        'scrollTop': $target.offset().top
+									    }, 1000, 'swing', function () {
+									        window.location.hash = target;
+									    });
+									});
+								});
+    </script>
+
+
+    <!---//smoth-scrlling---->
+    <!----start-top-nav-script---->
+    <script type="text/javascript" src="js/flexy-menu.js"></script>
+    <script type="text/javascript">$(document).ready(function(){$(".flexy-menu").flexymenu({speed: 400,type: "horizontal",align: "right"});});</script>
+    <!----//End-top-nav-script---->
+    <!---webfonts---->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!---webfonts---->
+    <!--start slider -->
+    <link rel="stylesheet" href="css/fwslider.css" media="all">
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/css3-mediaqueries.js"></script>
+    <script src="js/fwslider.js"></script>
+    <!--end slider -->
+    <!---calender-style---->
+    <link rel="stylesheet" href="css/jquery-ui.css" />
+    <!---//calender-style---->
+    <script>
+        $(function f(){
+        f.count_event_id = 1;
+        $(".test1").on("click", function () {
+        var temp_count = f.count_event_id+1;
+        if (temp_count <= 3){
+        f.count_event_id++;
+        var dup = $("#1").clone();
+        dup.attr('id', f.count_event_id);
+        dup.appendTo(".events");
+        divparent = dup.closest('div');
+        divparent.find(".cancelevent1").show();
+        intext = divparent.find(".dest");;
+        intext.val(eval(intext.attr("onblur")));
+        if (f.count_event_id > 2) {
+        $(".test1").hide();
+        }
+        }
+        });
+
+        $(document).on("click",".cancelevent1", function () {
+        f.count_event_id--;
+        if (f.count_event_id < 3) {
+        $(".test1").show();
+        }
+        $(this).closest('div').remove();
+        });
+        })
+        // ]]>
+        // ]]></script>
+    <!-- plus add event effect--><!----start-wrap---->
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+   
+
+    <!----start-find-place---->
+    <div class="find-place">
+        <div class="wrap">
+            <div class="p-h">
+                <span>FIND YOUR</span>
+                <label>EVENTS</label>
+            </div>
+            <!---strat-date-piker---->
+            <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+            <script>
+                $(function () {
+                    $("#datepicker").datepicker();
+                });
+                $(function () {
+                    $("#datepicker1").datepicker();
+                });
+            </script>
+            <!---/End-date-piker---->
+            <div class="p-ww">
+                <form >
+                    <span> Where </span>
+                    <input class="dest" type="text" value="Where"  ng-model="location" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Where';}">
+                    <br />
+                    <br />
+                    <span> From </span>
+                    <input class="dest" id="datepicker" type="text" value="Distination" ng-model="startDate" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Distination';}">
+                    <span> To  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;      </span>
+                    <input class="date" id="datepicker1" type="text" value="Select date" ng-model="endDate" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}">
+                    <div class="events">
+                        <div class="orgevent" id="1" ng-repeat="i in getNumber(numOfEvents)  track by $index">
+                            <br />
+                            <span> Event </span>
+                            <input class="dest" type="text" value="Event" ng-model="userEventVals[$index]" onfocus=" this.value='' ;" onblur="if (this.value == '') {this.value = 'Event';}">
+                            <span> Free text </span>
+                            <input class="dest" type="text" value="Free text" ng-model="userFreeTextVals[$index]" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Event text';}">
+                            <span> <img  src="images/X.png" title="cancel" width="2.5%" height="2.5%" class="cancelevent1" ng-click="RemoveEventToSearch()" /> </span>
+                        </div>
+                    </div>
+                    <img src="images/pluss.png" title="plus" width="2.5%" height="2.5%" class="test1" ng-click="AddEventToSearch()" />
+                    <br />
+                   
+                    <input type="submit" value="Search" ng-click="search1()" />
+</form>
+                <br />
+                <table style="width:100%">
+                    <tr class="dest-place-opt-cast">
+                        <th align="left"><input type="radio" /></th>
+                        <th>Event</th>
+                        <th>Country</th>
+                        <th>Date</th>
+                        <th>Price</th>
+
+                    </tr>
+                    <tr lass="dest-place-opt-fea" ng-repeat="result in results">
+                        <td></td>
+                        <td>{{result.Title}} {{result.Type}} </td>
+                        <td>{{result.Location}}</td>
+                        <td>{{result.Date}}</td>
+                        <td>{{result.Price}} {{result.coin}}</td>
+                    </tr>
+                </table>
+
+            </div>
+            <div class="clear"> </div>
+        </div>
+    </div>
+    <!----//End-find-place---->
+    <!----start-offers---->
+    <!----//End-clients---->
+    <!----start-footer---->
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <div class="footer">
+        <div class="wrap">
+            <div class="footer-grids">
+                <div class="footer-grid Newsletter">
+                    <h3>News letter </h3>
+                    <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore.</p>
+                    <form>
+                        <input type="text" placeholder="Subscribes.." /> <input type="submit" value="GO" />
+                    </form>
+                </div>
+                <div class="footer-grid Newsletter">
+                    <h3>Latest News </h3>
+                    <div class="news">
+                        <div class="news-pic">
+                            <img src="images/f01.jpg" title="news-pic1" />
+                        </div>
+                        <div class="news-info">
+                            <a href="#">Postformat Gallery: Multiple images</a>
+                            <span>December 12, 2012 - 9:11 pm</span>
+                        </div>
+                        <div class="clear"> </div>
+                    </div>
+                    <div class="news">
+                        <div class="news-pic">
+                            <img src="images/f01.jpg" title="news-pic1" />
+                        </div>
+                        <div class="news-info">
+                            <a href="#">Postformat Gallery: Multiple images</a>
+                            <span>December 12, 2012 - 9:11 pm</span>
+                        </div>
+                        <div class="clear"> </div>
+                    </div>
+                </div>
+                <div class="footer-grid tags">
+                    <h3>Tags</h3>
+                    <ul>
+                        <li><a href="#">Agent login</a></li>
+                        <li><a href="#">Customer Login</a></li>
+                        <li><a href="#">Not a Member?</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">New Horizons</a></li>
+                        <li><a href="#">Lanscape</a></li>
+                        <li><a href="#">Tags</a></li>
+                        <li><a href="#">Nice</a></li>
+                        <li><a href="#">Some</a></li>
+                        <li><a href="#">Portrait</a></li>
+                        <div class="clear"> </div>
+                    </ul>
+                </div>
+                <div class="footer-grid address">
+                    <h3>Address </h3>
+                    <div class="address-info">
+                        <span>DieSachbearbeiter Schonhauser </span>
+                        <span>Allee 167c,10435 Berlin Germany</span>
+                        <span><i>E-mail:</i><a href="mailto:moin@blindtextgenerator.de">moin@blindtextgenerator.de</a></span>
+                    </div>
+                    <div class="footer-social-icons">
+                        <ul>
+                            <li><a class="face1 simptip-position-bottom simptip-movable" data-tooltip="facebook" href="#"><span> </span></a></li>
+                            <li><a class="twit1 simptip-position-bottom simptip-movable" data-tooltip="twitter" href="#"><span> </span></a></li>
+                            <li><a class="tub1 simptip-position-bottom simptip-movable" data-tooltip="tumblr" href="#"><span> </span></a></li>
+                            <li><a class="pin1 simptip-position-bottom simptip-movable" data-tooltip="pinterest" href="#"><span> </span></a></li>
+                            <div class="clear"> </div>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clear"> </div>
+            </div>
+        </div>
+    </div>
+    <!----//End-footer---->
+    <!---start-subfooter---->
+    <div class="subfooter">
+        <div class="wrap">
+            <ul>
+                <li><a href="index.html">Home</a><span>::</span></li>
+                <li><a href="destinations.html">Destinations</a><span>::</span></li>
+                <li><a href="criuses.html">Criuses</a><span>::</span></li>
+                <li><a href="destinations.html">Specils</a><span>::</span></li>
+                <li><a href="destinations.html">Holidays</a><span>::</span></li>
+                <li><a href="blog.html">Blog</a><span>::</span></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <div class="clear"> </div>
+            </ul>
+            <p class="copy-right">Template by <a href="http://w3layouts.com/">W3layouts</a></p>
+            <a class="to-top" href="#header"><span> </span> </a>
+        </div>
+    </div>
+    <!---//End-subfooter---->
+    <!----//End-wrap---->
+</body>
+
+</html>
+
+
+

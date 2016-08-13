@@ -1,0 +1,107 @@
+﻿@{
+    ViewBag.Title = "tryForm";
+}
+
+<html>
+<head>
+    <title></title>
+    <link href="~/css/angular-material.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl" ng-cloak>
+    <script src="~/js/angular.min.js"></script>
+    <script src="~/js/angular-animate.min.js"></script>
+    <script src="~/js/angular-aria.min.js"></script>
+    <script src="~/js/angular-messages.min.js"></script>
+    <script src="~/js/angular-material.min.js"></script>
+    <script src="~/js/JavaScript.js"></script>
+
+    <md-content layout-gt-sm="row" layout-align="center center" layout-padding>
+
+        <div>
+            <h2> I want a vacation.. </h2>
+            <label>From</label>
+            <md-datepicker ng-model="startDate" md-placeholder="Enter date"></md-datepicker>
+            <label> To  </label>
+            <md-datepicker ng-model="endDate" md-placeholder="Enter date"></md-datepicker>
+
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Loction</label>
+                <md-select ng-model="location">
+                    <md-option ng-repeat="state in states" value="{{state.abbrev.Name}}">
+                        {{state.abbrev.Name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+
+            <div layout-gt-sm="row" ng-repeat="i in getNumber(numOfEvents)  track by $index">
+
+                <img src="css/svg/plus-circle-outline.svg" title="plus" ng-click="AddEventToSearch()" />
+                <md-input-container>
+                    <label>Free text</label>
+                    <input ng-model="userFreeTextVals[$index]">
+                </md-input-container>
+               
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Event Type</label>
+                        <md-select ng-model="userEventVals[$index]">
+                            <md-option ng-repeat="EventType in EventTypes" value="{{EventType.abbrev.Name}}">
+                                {{EventType.abbrev.Name}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                    <span> <img src="css/svg/minus-circle-outline.svg" title="cancel" ng-click="RemoveEventToSearch($index)" /> </span>
+                </div>
+            <div layout="row">
+                <md-button class="md-raised md-accent" layout-align="center center" flex ng-click="search1()" layout="row" >Search</md-button>
+                <md-button class="md-icon-button" aria-label="More" layout="row" flex ng-click="cleanForm()">
+                    <md-icon md-svg-icon="~/css/svg/auto-fix.svg"></md-icon>
+                </md-button>
+            </div>
+        </div>
+        
+    </md-content>
+
+    <md-content>
+        <md-divider></md-divider>
+
+        <h2 ng-show="noResults">No results for the specfied search :( Try again!</h2>
+        <md-list flex>
+            <md-list-item class="md-3-line" ng-click="null" ng-repeat="result in results">
+                <div class="md-list-item-text" layout="row" ng-repeat="event in result.PathEvents">
+
+                    <div layout="column" flex="45">
+                        <h3 flex>{{event.Title}} {{event.Type.Name}}  </h3>
+                        <h4 flex>{{event.Location.Name}}</h4>
+                        <p flex> {{event.stringDate}} </p>
+                        <p>Price: {{event.Price}} $ {{event.coin}}</p>
+                    </div>
+                    <div layout="column" flex="10">
+                        <md-icon md-svg-src="~/css/svg/ic_send_black_24px.svg">
+                        </md-icon>
+                    </div>
+                </div>
+                <div>
+                    <md-button class="md-fab" aria-label="Eat cake" ng-click="openToast()">
+                        <md-icon md-svg-src="~/css/svg/ic_favorite_border_white_24px.svg"></md-icon>
+                    </md-button>
+                    <md-button class="md-fab md-primary" aria-label="Use Android">
+                        <md-icon md-svg-src="~/css/svg/ic_flight_takeoff_white_24px.svg"></md-icon>
+                    </md-button>
+                </div>
+            </md-list-item>
+            <md-divider></md-divider>
+        </md-list>
+    </md-content>
+  
+
+    <div layout-fill id="toast-container">
+        <md-content>
+
+        </md-content>
+    </div>
+</body>
+</html>

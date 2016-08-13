@@ -1,0 +1,52 @@
+﻿
+<html>
+<head>
+    <title></title>
+    <link href="~/css/angular-material.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl" ng-cloak>
+    <script src="~/js/angular.min.js"></script>
+    <script src="~/js/angular-animate.min.js"></script>
+    <script src="~/js/angular-aria.min.js"></script>
+    <script src="~/js/angular-messages.min.js"></script>
+    <script src="~/js/angular-material.min.js"></script>
+    <script src="~/js/JavaScript.js"></script>
+    <md-content layout-gt-sm="row" layout-align="center center" layout-padding>
+
+        <div>
+            
+            
+                <md-input-container>
+                    <label>Email</label>
+                    <input ng-model="email" type="email">
+                </md-input-container>
+
+
+            <md-input-container>
+                <label>User Name</label>
+                <input ng-model="userName">
+            </md-input-container>
+
+            <md-input-container>
+                <label>Password</label>
+                <input ng-model="password" type="password">
+            </md-input-container>
+
+            <md-input-container>
+                <label>Re Password</label>
+                <input ng-model="rePassword" type="password">
+            </md-input-container>
+
+            <div layout="row">
+                <md-button class="md-raised md-accent" layout-align="center center" flex ng-click="search1()" layout="row">Search</md-button>
+                
+            </div>
+        </div>
+
+    </md-content>
+</body>
+</html>
