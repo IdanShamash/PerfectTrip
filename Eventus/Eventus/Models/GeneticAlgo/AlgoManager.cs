@@ -59,7 +59,7 @@ namespace Eventus.Models.GeneticAlgo
                 this.Population.Individuals.Sort();
                 int index = 0;
 
-                while (this.BestPaths.Count < this.SizeBestPaths)
+                while (this.BestPaths.Count < this.SizeBestPaths && index < Population.POP_SIZE)
                 {
                     IndividualPath ip = this.Population.Individuals.ElementAt(index);
 
