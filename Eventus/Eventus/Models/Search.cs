@@ -83,8 +83,8 @@ namespace Eventus.Models
                 ec.AllEvents.Add(spec, lEves);
             }
 
+            ec.ChooseMaximums();
             GeneticAlgo.AlgoManager alg = new GeneticAlgo.AlgoManager(ec);
-            //alg.UpdateBestPaths();
 
             return alg.BestPaths;
         }

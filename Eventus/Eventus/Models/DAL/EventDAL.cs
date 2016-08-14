@@ -53,17 +53,18 @@ namespace Eventus.Models.DAL
 
         public static List<EventBL> GetEvents(string sDate, string eDate, string loc, EventSpecification spec)
         {
-            DateTime dtStart = new DateTime(1, 1, 1);
-            DateTime dtEnd   = new DateTime(9999, 9, 9);
+            DateTime dtStart = DateTime.Today;
+            DateTime dtEnd   = dtStart.AddYears(1);
+
             List<EventBL> EventResults = new List<EventBL>();
 
             DBEventusDataContext db = new DBEventusDataContext();
 
             if (sDate != null && sDate != "")
-                dtStart = DateTime.Parse(sDate);
+                dtStart = new DateTime(Math.Max(dtStart.Ticks, DateTime.Parse(sDate).Ticks));
 
             if (eDate != null && eDate != "")
-                dtEnd = DateTime.Parse(eDate);
+                dtEnd = new DateTime(Math.Min(dtEnd.Ticks, DateTime.Parse(eDate).Ticks));
 
             var q2 =
                from data in db.Events

@@ -12,6 +12,9 @@ namespace Eventus.Models.GeneticAlgo
         const int DATE_DISTANCE_FACTOR   = 15;
         const int EXACT_DATE_FACTOR      = 40;
 
+        public static int max_cost;
+        public static int max_date_distance;
+
         const int MAX_COST           = 700;
         const int MAX_EXACT_LOCATION = 10;
         const int MAX_DATE_DISTANCE  = 365;
@@ -111,10 +114,10 @@ namespace Eventus.Models.GeneticAlgo
 
             dateDistance = (maxDate - minDate).Days;
 
-            this.Score =      TOTAL_COST_FACTOR * (1 - (double)totalPrice / MAX_COST) +
-                              DATE_DISTANCE_FACTOR * (1 - (double)dateDistance / MAX_DATE_DISTANCE) +
-                              EXACT_DATE_FACTOR * (1 - (double)maxExactDate / MAX_EXACT_DATE) +
-                              EXACT_LOCATION_FACTOR * ((double)maxExactLocation / MAX_EXACT_LOCATION);
+            this.Score = TOTAL_COST_FACTOR * (1 - (double)totalPrice / (IndividualPath.max_cost * this.PathEvents.Count)) +
+                         DATE_DISTANCE_FACTOR * (1 - (double)dateDistance / IndividualPath.max_date_distance) +
+                         EXACT_DATE_FACTOR * (1 - (double)maxExactDate / this.PathEvents.Count) +
+                         EXACT_LOCATION_FACTOR * ((double)maxExactLocation / this.PathEvents.Count); //MAX_EXACT_LOCATION);
         }
 
      /*   private double NormalizeScore(double score)

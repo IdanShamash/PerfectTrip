@@ -8,7 +8,8 @@ namespace Eventus.Models.GeneticAlgo
 {
     public class Population
     {
-        public const int POP_SIZE = 100;
+        public  const int POP_SIZE      = 100;
+        private const int MUTATION_RATE = 100; // 1 in a hundred
 
         public List<IndividualPath> Individuals { get; set; }
 
@@ -60,7 +61,7 @@ namespace Eventus.Models.GeneticAlgo
             this.Individuals = new List<IndividualPath>();
         }
 
-        public Population(Population p)
+        public Population(Population p, EventsContainer ec)
         {
             this.totalPopulationScore = 0;
             this.Individuals = new List<IndividualPath>();
@@ -106,14 +107,13 @@ namespace Eventus.Models.GeneticAlgo
                     childPath.Add(keyChromozom, valChromozom);    
                 }
 
-                if (false) // if muation
-                {
-                    //randomize a spec
-                    //get the spec's eventBL from container
-                    //insert to dictionary[spec] <- eventBL
-                }
-
                 IndividualPath ip = new IndividualPath(childPath);
+
+                if (Rand.Next(MUTATION_RATE) == 1) // if muation, 1% probability
+                {
+                    this.MutateIndividual(ip, ec);
+                    ip.CalculateScore();
+                }
 
                 this.Individuals.Add(ip);
                 this.totalPopulationScore += (int)Math.Ceiling(ip.Score);
@@ -160,6 +160,17 @@ namespace Eventus.Models.GeneticAlgo
             }
 
             return probArr;
+        }
+
+        private void MutateIndividual(IndividualPath spiderman, EventsContainer ec)
+        {
+            int r = Rand.Next(spiderman.PathEvents.Count);
+            EventSpecification chromozomSpec = spiderman.PathEvents.Keys.ElementAt(r);
+
+            List<EventBL> possibleEvents = ec.AllEvents[chromozomSpec];
+            r = Rand.Next(possibleEvents.Count);
+
+            spiderman.PathEvents[chromozomSpec] = possibleEvents.ElementAt(r);
         }
     }
 }

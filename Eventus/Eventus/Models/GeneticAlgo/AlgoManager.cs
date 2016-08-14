@@ -15,7 +15,7 @@ namespace Eventus.Models.GeneticAlgo
         public List<IndividualPath> BestPaths { get; set; }
         public EventsContainer EventsContainer { get; set; }
 
-        public int SizeBestPaths = 3;
+        public int SizeBestPaths = 5;
         
         private IndividualPathEqualityComparer ipEqualityComparer; 
 
@@ -32,7 +32,7 @@ namespace Eventus.Models.GeneticAlgo
         {
             for (int i = 0; i < GENERATIONS; i++)
             {
-                this.Population = new Population(this.Population);
+                this.Population = new Population(this.Population, this.EventsContainer);
                 this.ChooseBestPathsFromPopulation();
             }
             

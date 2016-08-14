@@ -42,5 +42,36 @@ namespace Eventus.Models
             int chosen = Rand.Next(this.AllEvents[spec].Count);
             return this.AllEvents[spec].ElementAt<EventBL>(chosen);
         }
+
+        public void ChooseMaximums()
+        {
+            IndividualPath.max_cost = 0;
+
+            DateTime minDate = new DateTime(9999, 9, 9);
+            DateTime maxDate = new DateTime(1, 1, 1);
+
+            foreach (List<EventBL> lEv in this.AllEvents.Values)
+            {
+                foreach (EventBL eb in lEv)
+                {
+                    if (eb.Price > IndividualPath.max_cost)
+                    {
+                        IndividualPath.max_cost = (int)Math.Ceiling(eb.Price);
+                    }
+
+                    if (minDate > eb.Date)
+                    {
+                        minDate = eb.Date;
+                    }
+
+                    if (maxDate < eb.Date)
+                    {
+                        maxDate = eb.Date;
+                    }
+                }
+            }
+
+            IndividualPath.max_date_distance = (maxDate - minDate).Days;
+        }
     }
 }
